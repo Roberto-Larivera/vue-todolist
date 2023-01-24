@@ -26,7 +26,8 @@
                 <div class="row justify-content-center">
                     <div class="col-6">
                         <p>stai scrivendo {{newTask}}</p>
-                        <form action="" @submit.prevent="pushListTask (newTask)">
+                        <!-- <form action="" @submit.prevent="pushListTask (newTask)"> -->
+                        <form action="" @keyup.enter.prevent="pushListTask (newTask)">
                             <input type="text" placeholder="Nuova Task" v-model="newTask" required minlength="3">
                             <button>Aggiungi</button>
                         </form>
