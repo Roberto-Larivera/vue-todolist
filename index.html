@@ -24,9 +24,18 @@
         <main class="px-5 pb-5">
             <div class="container">
                 <div class="row justify-content-center pb-5">
+
+                    <!-- SECONDA SOLUZIONE SENZA FORM -->
+                    <!-- <div class="col-4">
+                        <input @keyup.enter="pushListTask (newTask)" id="inpu_text-one" class="form-control" type="text" placeholder="Nuova Task" v-model="newTask" required minlength="3">
+                    </div>
+                    <div class="col-2">
+                        <button @click="pushListTask (newTask)" class="btn btn-primary">Aggiungi</button>
+                    </div> -->
+
+                    <!-- PRIMA SOLUZIONE CON IL FORM -->
                     <form class="d-flex justify-content-center gap-3" action="" @submit.prevent="pushListTask (newTask)">
                         <div class="col-4">
-                            <!-- <form action="" @keyup.enter.prevent="pushListTask (newTask)"> -->
                             <input id="inpu_text-one" class="form-control" type="text" placeholder="Nuova Task" v-model="newTask" required minlength="3">
                         </div>
                         <div class="col-2 d-flex justify-content-end">
