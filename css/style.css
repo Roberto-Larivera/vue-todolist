@@ -3,3 +3,10 @@
     margin: 0;
     box-sizing: border-box;
 } */
+.card .list-group span,
+.card .list-group i{
+    cursor: pointer;
+}
+.card .list-group span.done-completed{
+    text-decoration: line-through;
+}

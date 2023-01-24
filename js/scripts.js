@@ -5,11 +5,22 @@ createApp ({
     data(){
         return{
             listTask : [
-                'Fare la spesa',
-                'Fare i compiti',
-                'Fare i piatti',
-                'Fare il letto',
-                'Andare al commercialista'
+                {
+                    text: 'Fare la spesa',
+                    todo: false
+                },{
+                    text: 'Fare i compiti',
+                    todo: true
+                },{
+                    text: 'Fare i piatti',
+                    todo: false
+                },{
+                    text: 'Fare il letto',
+                    todo: false
+                },{
+                    text: 'Andare al commercialista',
+                    todo: true
+                }
             ],
             newTask : null,
         }
@@ -17,13 +28,15 @@ createApp ({
     methods: {
         removeListTask (index){
             this.listTask.splice(index,1)
+            console.log(this.listTask)
+
         },
-        pushListTask (text){
-            this.listTask.push(text);
+        pushListTask (input){
+            this.listTask.push({text: input, todo: false});
+            console.log(this.listTask)
             this.newTask = null;
         },
     },
     mounted() {
-        
     },
 }).mount('#app')

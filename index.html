@@ -36,7 +36,7 @@
                     <div class="card">
                         <ul class="list-group list-group-flush" v-if="listTask.length > 0">
                             <li class="list-group-item d-flex justify-content-between align-items-center" v-for="(item, index) in listTask">
-                                <span>{{item}}</span>
+                                <span :class="(item.todo == true) ? 'done-completed' : '' " @click="(item.todo == true) ? item.todo = false : item.todo = true">{{item.text}}</span>
                                 <i class="fa-solid fa-xmark" @click="removeListTask(index)"></i>
                             </li>
                         
