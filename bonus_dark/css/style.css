@@ -1,0 +1,44 @@
+/* *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} */
+body{
+    background-color:#E94560;
+}
+/* header .row img{
+    filter: invert(1) grayscale(1);
+} */
+.card .list-group span,
+.card .list-group i,
+.card h5 i{
+    cursor: pointer;
+    color: #E94560;
+}
+.card .list-group span{
+    color: white;
+}
+.card .list-group span.done-completed{
+    text-decoration: line-through;
+    color: #0F3460;
+}
+.card h5 {
+    color: #E94560;
+}
+.card h5 i:hover {
+    color: greenyellow;
+}
+
+.bg-my-bl{
+    background-color: #0F3460;
+}
+.bg-my-fx{
+    background-color: #E94560 !important;
+}
+.bg-my-tx{
+    background-color: #533483 !important;
+}
+
+#input_text-one::-webkit-input-placeholder { /* WebKit browsers (Safari, Google Chrome, Opera 15+) */
+    color: white;
+}

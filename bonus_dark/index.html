@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue To Do List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header class="py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <img class="w-100" src="img/logo.png" alt="logo_boolean">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="pb-5">
+            <div class="container">
+                <div class="row justify-content-center pb-5">
+                    <div class="col-6">
+                        <form action="" @submit.prevent="pushListTask (newTask)">
+                            <div class="row row-cols-1 row-cols-md-2 justify-content-center">
+                                    <div class="col col-md-8 d-flex justify-content-start mb-2" >
+                                        <input id="input_text-one" class="form-control text-light bg-my-fx w-100" type="text" placeholder="Nuova Task" v-model="newTask" required minlength="3">
+                                    </div>
+                                    <div class="col-6 col-md-4 d-flex justify-content-end mb-2">
+                                        <button class="btn btn-outline-light w-100">Aggiungi</button>
+                                    </div>
+                            </div>
+                        </form> 
+                    </div>
+                </div>
+                <!-- SECONDA SOLUZIONE SENZA FORM -->
+                <!-- <div class="col-4">
+                    <input @keyup.enter="pushListTask (newTask)" id="inpu_text-one" class="form-control" type="text" placeholder="Nuova Task" v-model="newTask" required minlength="3">
+                </div>
+                <div class="col-2">
+                    <button @click="pushListTask (newTask)" class="btn btn-primary">Aggiungi</button>
+                </div> -->
+                
+                <!-- PRIMA SOLUZIONE CON IL FORM -->
+                
+                
+
+                <div class="row justify-content-center">
+                    <div class="col-6">
+
+                        <div class="card bg-my-tx p-3">
+                            
+                                <ul class="list-group  list-group-flush" v-if="listTask.length > 0">
+                                    <li class="list-group-item bg-my-tx d-flex justify-content-between align-items-center" v-for="(item, index) in listTask">
+                                        <span :class="(item.todo == true) ? 'done-completed' : '' " @click="(item.todo == true) ? item.todo = false : item.todo = true">{{item.text}}</span>
+                                        <i class="fa-solid fa-xmark" @click="removeListTask(index)"></i>
+                                    </li>
+                                
+                                </ul>
+                                <h5 class="text-center lh-lg" v-else>
+                                    Complimenti hai completato tutti i Task! <br>
+                                    Aggiungi un nuovo task <a href="#inpu_text-one"><i class="ps-3 fa-solid fa-plus"></i></a>
+                                </h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </main>
+    </div>
+    <script type="text/javascript" src="js/scripts.js"></script>
+</body>
+</html>

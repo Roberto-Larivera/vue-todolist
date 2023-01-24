@@ -12,16 +12,16 @@
 </head>
 <body>
     <div id="app">
-        <header class="p-5">
+        <header class="py-5">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-6">
+                    <div class="ccol-6 col-md-4 col-lg-3">
                         <img class="w-100" src="img/logo.png" alt="logo_boolean">
                     </div>
                 </div>
             </div>
         </header>
-        <main class="px-5 pb-5">
+        <main class="pb-5">
             <div class="container">
                 <div class="row justify-content-center pb-5">
 
@@ -34,28 +34,37 @@
                     </div> -->
 
                     <!-- PRIMA SOLUZIONE CON IL FORM -->
-                    <form class="d-flex justify-content-center gap-3" action="" @submit.prevent="pushListTask (newTask)">
-                        <div class="col-4">
-                            <input id="inpu_text-one" class="form-control" type="text" placeholder="Nuova Task" v-model="newTask" required minlength="3">
-                        </div>
-                        <div class="col-2 d-flex justify-content-end">
-                            <button class="btn btn-primary">Aggiungi</button>
-                        </div>
-                    </form>
+                    <div class="col-6">
+                        <form action="" @submit.prevent="pushListTask (newTask)">
+                            <div class="row row-cols-1 row-cols-md-2 justify-content-center">
+                                <div class="col col-md-8 d-flex justify-content-start mb-2" >
+                                    <input id="inpu_text-one" class="form-control" type="text" placeholder="Nuova Task" v-model="newTask" required minlength="3">
+                                </div>
+                                <div class="col-6 col-md-4 d-flex justify-content-end mb-2">
+                                    <button class="btn btn-primary">Aggiungi</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="card p-3">
-                        <ul class="list-group list-group-flush" v-if="listTask.length > 0">
-                            <li class="list-group-item d-flex justify-content-between align-items-center" v-for="(item, index) in listTask">
-                                <span :class="(item.todo == true) ? 'done-completed' : '' " @click="(item.todo == true) ? item.todo = false : item.todo = true">{{item.text}}</span>
-                                <i class="fa-solid fa-xmark" @click="removeListTask(index)"></i>
-                            </li>
-                        
-                        </ul>
-                        <h5 class="text-center lh-lg" v-else>
-                            Complimenti hai completato tutti i Task! <br>
-                            Aggiungi un nuovo task <a href="#inpu_text-one"><i class="ps-3 fa-solid fa-plus"></i></a>
-                        </h5>
+
+                <div class="row justify-content-center">
+                    <div class="col-6">
+                        <div class="card p-3">
+                            <ul class="list-group list-group-flush" v-if="listTask.length > 0">
+                                <li class="list-group-item d-flex justify-content-between align-items-center" v-for="(item, index) in listTask">
+                                    <span :class="(item.todo == true) ? 'done-completed' : '' " @click="(item.todo == true) ? item.todo = false : item.todo = true">{{item.text}}</span>
+                                    <i class="fa-solid fa-xmark" @click="removeListTask(index)"></i>
+                                </li>
+                            
+                            </ul>
+                            <h5 class="text-center lh-lg" v-else>
+                                Complimenti hai completato tutti i Task! <br>
+                                Aggiungi un nuovo task <a href="#inpu_text-one"><i class="ps-3 fa-solid fa-plus"></i></a>
+                            </h5>
+                        </div>
+
                     </div>
                 </div>
             </div>
