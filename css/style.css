@@ -4,9 +4,17 @@
     box-sizing: border-box;
 } */
 .card .list-group span,
-.card .list-group i{
+.card .list-group i,
+.card h5 i{
     cursor: pointer;
 }
 .card .list-group span.done-completed{
     text-decoration: line-through;
+    color: lightgray;
+}
+.card h5 i{
+    color: black;
+}
+.card h5 i:hover {
+    color: #0d6efd;
 }

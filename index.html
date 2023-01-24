@@ -23,18 +23,19 @@
         </header>
         <main>
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-6">
-                        <p>stai scrivendo {{newTask}}</p>
-                        <!-- <form action="" @submit.prevent="pushListTask (newTask)"> -->
-                        <form action="" @keyup.enter.prevent="pushListTask (newTask)">
-                            <input type="text" placeholder="Nuova Task" v-model="newTask" required minlength="3">
-                            <button>Aggiungi</button>
-                        </form>
-                    </div>
+                <div class="row justify-content-center pb-5">
+                    <form class="d-flex justify-content-center gap-3" action="" @submit.prevent="pushListTask (newTask)">
+                        <div class="col-4">
+                            <!-- <form action="" @keyup.enter.prevent="pushListTask (newTask)"> -->
+                            <input id="inpu_text-one" class="form-control" type="text" placeholder="Nuova Task" v-model="newTask" required minlength="3">
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-primary">Aggiungi</button>
+                        </div>
+                    </form>
                 </div>
                 <div class="row">
-                    <div class="card">
+                    <div class="card p-3">
                         <ul class="list-group list-group-flush" v-if="listTask.length > 0">
                             <li class="list-group-item d-flex justify-content-between align-items-center" v-for="(item, index) in listTask">
                                 <span :class="(item.todo == true) ? 'done-completed' : '' " @click="(item.todo == true) ? item.todo = false : item.todo = true">{{item.text}}</span>
@@ -42,8 +43,9 @@
                             </li>
                         
                         </ul>
-                        <h5 v-else>
-                            Complimenti hai completato tutti i Task!
+                        <h5 class="text-center lh-lg" v-else>
+                            Complimenti hai completato tutti i Task! <br>
+                            Aggiungi un nuovo task <a href="#inpu_text-one"><i class="ps-3 fa-solid fa-plus"></i></a>
                         </h5>
                     </div>
                 </div>

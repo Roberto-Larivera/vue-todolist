@@ -32,7 +32,7 @@ createApp ({
 
         },
         pushListTask (input){
-            this.listTask.push({text: input, todo: false});
+            this.listTask.push({text: (input.charAt(0).toUpperCase() + input.slice(1).toLowerCase()), todo: false});
             console.log(this.listTask)
             this.newTask = null;
         },
